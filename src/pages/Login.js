@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../components/supabaseClient'
 import Auth from '../components/Auth'
 import Account from '../components/Account'
+import Product from '../components/Product'
 
 function Login() {
     const [session, setSession] = useState(null)
@@ -19,7 +20,13 @@ function Login() {
   
     return (
       <div className="container" style={{ padding: '50px 0 100px 0' }}>
-        {!session ? <Auth /> : <Account key={session.user.id} session={session} />}
+        {!session ? <Auth /> 
+        : 
+        <>
+        <Account key={session.user.id} session={session} />
+        <Product />
+        </>
+        }
       </div>
     )
 }
