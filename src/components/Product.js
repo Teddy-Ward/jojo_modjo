@@ -6,12 +6,16 @@ import { supabase } from './supabaseClient';
 
 
 function Product() {
+  const [ category, setCategory ] = useState("");
   const [ name, setName ] = useState("");
   const [ description, setDescription ] = useState("");
+  const [ image_url, setImage_url ] = useState("");
   const [ products, setProducts] = useState([]);
 
+  console.log(category);
   console.log(name);
   console.log(description);
+  console.log(image_url);
 
   useEffect(() => {
     getProducts();
@@ -37,8 +41,10 @@ function Product() {
       const { data, error } = await supabase
         .from("products")
         .insert({
+          category: category,
           name: name,
-          description: description
+          description: description,
+          image_url: image_url
         })
         .single()
         
@@ -57,6 +63,12 @@ function Product() {
         <Row>
           <Col xs={12} md={8}>
             <h3>Create Product For Supabase Database</h3>
+            <Form.Label>Product category</Form.Label>
+            <Form.Control
+              type="text"
+              id="category"
+              onChange={(e) => setCategory(e.target.value)}
+            />
             <Form.Label>Product Name</Form.Label>
             <Form.Control
               type="text"
@@ -68,6 +80,12 @@ function Product() {
               type="text"
               id="description"
               onChange={(e) => setDescription(e.target.value)}
+            />
+            <Form.Label>Product image url</Form.Label>
+            <Form.Control
+              type="text"
+              id="image_url"
+              onChange={(e) => setImage_url(e.target.value)}
             />
             <br></br>
             <Button onClick={() => createProduct()}>Create Product in Supabase DB</Button>

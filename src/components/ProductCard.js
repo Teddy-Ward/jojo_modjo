@@ -6,16 +6,20 @@ function ProductCard(props) {
     const product = props.product;
 
     const [ editing, setEditing ] = useState(false);
+    const [ category, setCategory] = useState(product.category)
     const [ name, setName ] = useState(product.name);
     const [ description, setDescription ] = useState(product.description);
+    const [ image_url, setImage_url ] = useState(product.image_url);
 
     async function updateProduct() {
         try {
             const { data, error } = await supabase
                 .from("products")
                 .update({
+                    category: category,
                     name: name,
-                    description: description
+                    description: description,
+                    image_url: image_url
                 })
                 .eq("id", product.id)
             
@@ -43,10 +47,12 @@ function ProductCard(props) {
     return (
         <Card style={{width: "18rem"}}>
             <Card.Body>
-                { editing == false ?
-                    <>
+                { editing === false ?
+                    <>                        
                         <Card.Title>{product.name}</Card.Title>
                         <Card.Text>{product.description}</Card.Text>
+                        <Card.Text>{product.category}</Card.Text>
+                        <Card.Text>{product.image_url}</Card.Text>
                         <Button variant="danger" onClick={() => deleteProduct()}>Delete Product</Button>
                         <Button variant="secondary" onClick={() => setEditing(true)}>Edit Product</Button>
                     </>
@@ -68,6 +74,20 @@ function ProductCard(props) {
                             id="description"
                             defaultValue={product.description}
                             onChange={(e) => setDescription(e.target.value)}
+                        />
+                        <Form.Label>Product Category</Form.Label>
+                        <Form.Control
+                            type="text"
+                            id="category"
+                            defaultValue={product.category}
+                            onChange={(e) => setCategory(e.target.value)}
+                        />
+                        <Form.Label>Product Image</Form.Label>
+                        <Form.Control
+                            type="text"
+                            id="image_url"
+                            defaultValue={product.image_url}
+                            onChange={(e) => setImage_url(e.target.value)}
                         />
                         <br></br>
                         <Button onClick={() => updateProduct()}>Update Product in Supabase DB</Button>
