@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from './supabaseClient'
+import { Form } from 'react-bootstrap';
+
 
 export default function Avatar({ url, size, onUpload }) {
   const [avatarUrl, setAvatarUrl] = useState(null)
@@ -62,7 +64,10 @@ export default function Avatar({ url, size, onUpload }) {
         <div className="avatar no-image" style={{ height: size, width: size }} />
       )}
       <div>
-        <button className="button primary block" htmlFor="single">
+          <Form.Group className="mb-3" style={{maxWidth: "500px"}}>
+            <Form.Control type="file" accept="image/png, image/jpeg" onChange={(event) => uploadAvatar(event)}/>
+          </Form.Group>
+        {/* <button className="button primary block" htmlFor="single">
           {uploading ? 'Uploading ...' : 'Upload'}
         </button>
         <input
@@ -75,7 +80,7 @@ export default function Avatar({ url, size, onUpload }) {
           accept="image/*"
           onChange={uploadAvatar}
           disabled={uploading}
-        />
+        /> */}
       </div>
     </div>
   )

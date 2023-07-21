@@ -11,6 +11,7 @@ function Product() {
   const [ description, setDescription ] = useState("");
   const [ image_url, setImage_url ] = useState("");
   const [ products, setProducts] = useState([]);
+  const [uploading, setUploading] = useState(false);
 
   console.log(category);
   console.log(name);
@@ -57,6 +58,43 @@ function Product() {
 
   console.log(products);
 
+  async function uploadImage(event) {
+    try {
+      setUploading(true)
+
+      if (!event.target.files || event.target.files.length === 0) {
+        throw new Error('You must select an image to upload.')
+      }
+
+      const file = event.target.files[0]
+      const fileExt = file.name.split('.').pop()
+      const fileName = `${Math.random()}.${fileExt}`
+      const filePath = `${fileName}`
+
+      let { error: uploadError } = await supabase.storage.from('images').upload(filePath, file)
+
+      if (uploadError) {
+        throw uploadError
+      }
+
+      setImage_url(filePath)
+    } catch (error) {
+      alert(error.message)
+    } finally {
+      setUploading(false)
+    }
+  }
+
+  const categoryList = [
+    { label: 'Set Category'},
+    { label: 'MSLA', value: 'MSLA' },
+    { label: 'Spooo', value: 'Spooo'}
+  ]
+
+  const listChange = (event) => {
+    setCategory(event.target.value);
+  }
+
   return (
     <>
       <Container>
@@ -64,11 +102,11 @@ function Product() {
           <Col xs={12} md={8}>
             <h3>Create Product For Supabase Database</h3>
             <Form.Label>Product category</Form.Label>
-            <Form.Control
-              type="text"
-              id="category"
-              onChange={(e) => setCategory(e.target.value)}
-            />
+            <select category={category} onChange={listChange}>
+              {categoryList.map((option) => (
+                <option category={option.value}>{option.label}</option>
+              ))}
+            </select>
             <Form.Label>Product Name</Form.Label>
             <Form.Control
               type="text"
@@ -82,11 +120,9 @@ function Product() {
               onChange={(e) => setDescription(e.target.value)}
             />
             <Form.Label>Product image url</Form.Label>
-            <Form.Control
-              type="text"
-              id="image_url"
-              onChange={(e) => setImage_url(e.target.value)}
-            />
+            <Form.Group className="mb-3" style={{maxWidth: "500px"}}>
+              <Form.Control type="file" accept="image/png, image/jpeg" onChange={(event) => uploadImage(event)}/>
+            </Form.Group>
             <br></br>
             <Button onClick={() => createProduct()}>Create Product in Supabase DB</Button>
           </Col>
