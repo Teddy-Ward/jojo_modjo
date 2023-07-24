@@ -10,13 +10,15 @@ function Product() {
   const [ name, setName ] = useState("");
   const [ description, setDescription ] = useState("");
   const [ image_url, setImage_url ] = useState("");
-  const [ products, setProducts] = useState([]);
-  const [uploading, setUploading] = useState(false);
+  const [ date, setDate ] = useState("");
+  const [ products, setProducts ] = useState([]);
+  const [ uploading, setUploading ] = useState(false);
 
   console.log(category);
   console.log(name);
   console.log(description);
   console.log(image_url);
+  console.log(date)
 
   useEffect(() => {
     getProducts();
@@ -45,7 +47,8 @@ function Product() {
           category: category,
           name: name,
           description: description,
-          image_url: image_url
+          image_url: image_url,
+          date: date
         })
         .single()
         
@@ -82,13 +85,17 @@ function Product() {
       alert(error.message)
     } finally {
       setUploading(false)
+      alert("Upload Complete")
     }
   }
 
   const categoryList = [
     { label: 'Set Category'},
     { label: 'MSLA', value: 'MSLA' },
-    { label: 'Spooo', value: 'Spooo'}
+    { label: 'Spooo', value: 'Spooo'},
+    { label: "PixelbyPixel", value: "PixelbyPixel" },
+    { label: "Gallery", value: "Gallery" },
+    { label: "Vtuber", value: "Vtuber"}
   ]
 
   const listChange = (event) => {
@@ -123,6 +130,12 @@ function Product() {
             <Form.Group className="mb-3" style={{maxWidth: "500px"}}>
               <Form.Control type="file" accept="image/png, image/jpeg" onChange={(event) => uploadImage(event)}/>
             </Form.Group>
+            <Form.Label>Product Date</Form.Label>
+            <Form.Control
+              type="date"
+              id="date"
+              onChange={(e) => setDate(e.target.value)}
+            />
             <br></br>
             <Button onClick={() => createProduct()}>Create Product in Supabase DB</Button>
           </Col>

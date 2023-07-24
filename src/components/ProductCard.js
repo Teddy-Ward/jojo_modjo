@@ -10,6 +10,7 @@ function ProductCard(props) {
   const [name, setName] = useState(product.name);
   const [description, setDescription] = useState(product.description);
   const [image_url, setImage_url] = useState(product.image_url);
+  const [date, setDate] = useState(product.date);
 
   async function updateProduct() {
     try {
@@ -20,6 +21,7 @@ function ProductCard(props) {
           name: name,
           description: description,
           image_url: image_url,
+          date: date
         })
         .eq("id", product.id);
 
@@ -66,6 +68,9 @@ function ProductCard(props) {
     { label: "Set Category" },
     { label: "MSLA", value: "MSLA" },
     { label: "Spooo", value: "Spooo" },
+    { label: "PixelbyPixel", value: "PixelbyPixel" },
+    { label: "Gallery", value: "Gallery" },
+    { label: "Vtuber", value: "Vtuber"}
   ];
 
   const listChange = (event) => {
@@ -81,6 +86,7 @@ function ProductCard(props) {
             <Card.Text>{product.description}</Card.Text>
             <Card.Text>{product.category}</Card.Text>
             <Card.Text>{product.image_url}</Card.Text>
+            <Card.Text>{product.date}</Card.Text>
             <Button variant="danger" onClick={() => deleteAll(product.image_url)}>
               Delete Product
             </Button>
@@ -121,6 +127,12 @@ function ProductCard(props) {
               id="image_url"
               defaultValue={product.image_url}
               onChange={(e) => setImage_url(e.target.value)}
+            />
+            <Form.Control
+              type="date"
+              id="date"
+              defaultValue={product.date}
+              onChange={(e) => setDate(e.target.value)}
             />
             <br></br>
             <Button onClick={() => updateProduct()}>
