@@ -6,7 +6,7 @@ import Avatar from './Avatar'
 export default function Account({ session }) {
   const [loading, setLoading] = useState(true)
   const [username, setUsername] = useState(null)
-  const [website, setWebsite] = useState(null)
+  const [about, setAbout] = useState(null)
   const [avatar_url, setAvatarUrl] = useState(null)
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Account({ session }) {
 
       let { data, error } = await supabase
         .from('profiles')
-        .select(`username, website, avatar_url`)
+        .select(`username, about, avatar_url`)
         .eq('id', user.id)
         .single()
 
@@ -24,7 +24,7 @@ export default function Account({ session }) {
         console.warn(error)
       } else if (data) {
         setUsername(data.username)
-        setWebsite(data.website)
+        setAbout(data.about)
         setAvatarUrl(data.avatar_url)
       }
 
@@ -43,7 +43,7 @@ export default function Account({ session }) {
     const updates = {
       id: user.id,
       username,
-      website,
+      about,
       avatar_url,
       updated_at: new Date(),
     }
@@ -81,12 +81,12 @@ export default function Account({ session }) {
         />
       </div>
       <div>
-        <label htmlFor="website">Website</label>
+        <label htmlFor="about">About Me</label>
         <input
-          id="website"
-          type="url"
-          value={website || ''}
-          onChange={(e) => setWebsite(e.target.value)}
+          id="about"
+          type="text"
+          value={about || ''}
+          onChange={(e) => setAbout(e.target.value)}
         />
       </div>
 

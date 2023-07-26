@@ -5,7 +5,6 @@ const Header = () => {
 
   // on render, set listener
   useEffect(() => {
-    console.log("hello");
     window.addEventListener("scroll", isSticky);
     return () => {
       window.removeEventListener("scroll", isSticky);
@@ -20,7 +19,7 @@ const Header = () => {
     console.log(stickyClass);
   };
 
-  const classes = `header-section d-none d-xl-block ${sticky}`;
+  const classes = `header d-none d-xl-block ${sticky}`;
 
   return (
     <>

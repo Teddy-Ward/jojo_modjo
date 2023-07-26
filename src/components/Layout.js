@@ -5,7 +5,7 @@ const Layout = () => {
   return (
     <>
     <header>
-              <Header />
+      <Header />
     </header>
     <main style={{marginTop:80, marginBottom:30,}}>
       <Outlet />
