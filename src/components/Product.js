@@ -14,12 +14,6 @@ function Product() {
   const [ products, setProducts ] = useState([]);
   const [ uploading, setUploading ] = useState(false);
 
-  console.log(category);
-  console.log(name);
-  console.log(description);
-  console.log(image_url);
-  console.log(date)
-
   useEffect(() => {
     getProducts();
   }, [])

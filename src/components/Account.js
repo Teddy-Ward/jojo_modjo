@@ -81,10 +81,12 @@ export default function Account({ session }) {
         />
       </div>
       <div>
-        <label htmlFor="about">About Me</label>
-        <input
+        <label htmlFor="about">About Me</label><br />
+        <textarea
           id="about"
           type="text"
+          rows="40"
+          cols="100"
           value={about || ''}
           onChange={(e) => setAbout(e.target.value)}
         />
