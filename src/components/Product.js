@@ -11,6 +11,8 @@ function Product() {
   const [ description, setDescription ] = useState("");
   const [ image_url, setImage_url ] = useState("");
   const [ date, setDate ] = useState("");
+  const [ video, setVideo ] = useState("");
+  const [ link, setLink ] = useState("");
   const [ products, setProducts ] = useState([]);
   const [ uploading, setUploading ] = useState(false);
 
@@ -42,7 +44,9 @@ function Product() {
           name: name,
           description: description,
           image_url: image_url,
-          date: date
+          date: date,
+          video: video,
+          link: link
         })
         .single()
         
@@ -119,6 +123,18 @@ function Product() {
               type="text"
               id="description"
               onChange={(e) => setDescription(e.target.value)}
+            />
+            <Form.Label>Product Video/Clip Link</Form.Label>
+            <Form.Control
+              type="text"
+              id="video"
+              onChange={(e) => setVideo(e.target.value)}
+            />
+            <Form.Label>Product Link</Form.Label>
+            <Form.Control
+              type="text"
+              id="link"
+              onChange={(e) => setLink(e.target.value)}
             />
             <Form.Label>Product image url</Form.Label>
             <Form.Group className="mb-3" style={{maxWidth: "500px"}}>

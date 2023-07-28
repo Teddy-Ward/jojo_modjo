@@ -11,6 +11,8 @@ function ProductCard(props) {
   const [description, setDescription] = useState(product.description);
   const [image_url, setImage_url] = useState(product.image_url);
   const [date, setDate] = useState(product.date);
+  const [ video, setVideo ] = useState("");
+  const [ link, setLink ] = useState("");
 
   async function updateProduct() {
     try {
@@ -21,7 +23,9 @@ function ProductCard(props) {
           name: name,
           description: description,
           image_url: image_url,
-          date: date
+          date: date,
+          video: video,
+          link: link
         })
         .eq("id", product.id);
 
@@ -85,6 +89,8 @@ function ProductCard(props) {
             <Card.Title>{product.name}</Card.Title>
             <Card.Text>{product.description}</Card.Text>
             <Card.Text>{product.category}</Card.Text>
+            <Card.Text>{product.video}</Card.Text>
+            <Card.Text>{product.link}</Card.Text>
             <Card.Text>{product.image_url}</Card.Text>
             <Card.Text>{product.date}</Card.Text>
             <Button variant="danger" onClick={() => deleteAll(product.image_url)}>
@@ -121,6 +127,20 @@ function ProductCard(props) {
                 <option category={option.value}>{option.label}</option>
               ))}
             </select>
+            <Form.Label>Product Video/Clip Link</Form.Label>
+            <Form.Control
+              type="text"
+              id="video"
+              defaultValue={product.video}
+              onChange={(e) => setVideo(e.target.value)}
+            />
+            <Form.Label>Product Link</Form.Label>
+            <Form.Control
+              type="text"
+              id="link"
+              defaultValue={product.link}
+              onChange={(e) => setLink(e.target.value)}
+            />
             <Form.Label>Product Image</Form.Label>
             <Form.Control
               type="text"
