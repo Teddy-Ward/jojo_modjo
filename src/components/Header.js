@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [sticky, setSticky] = useState("");
@@ -19,11 +20,46 @@ const Header = () => {
     console.log(stickyClass);
   };
 
-  const classes = `header d-none d-xl-block ${sticky}`;
+  const classes = `header ${sticky}`;
 
+  const pages = [
+    "About",
+    "MSLA",
+    "Spooo",
+    "PixelByPixel",
+    "Gallery",
+    "Socials",
+  ];
   return (
     <>
-      <header className={classes}>..add header code</header>
+      <header className={classes}>
+        <ul>
+          {pages.map((page) => (
+            <li>
+              <NavLink
+                to={page}
+                style={({ isActive }) => {
+                  return {
+                    fontWeight: isActive ? "bold" : "",
+                    color: isActive ? "" : "",
+                    textDecorationLine: isActive ? "underline" : "",
+                  };
+                }}
+              >
+                {page}
+              </NavLink>
+            </li>
+          ))}
+            <li>
+              <NavLink
+                to=''
+                target="_blank"
+              >
+                Shop
+              </NavLink>
+            </li>
+        </ul>
+      </header>
     </>
   );
 };

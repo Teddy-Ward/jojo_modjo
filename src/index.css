@@ -2,6 +2,8 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  text-align: center;
+
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -19,13 +21,13 @@
   --background-color: #9A94BC;  
   --fonts-header:  'Work Sans', sans-serif;
 	--fonts: 'Comfortaa', cursive;
-  --text-dark-color: #222221;
+  --text-dark-color: #4f0e87;
 	--text-light-color: white;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: --brand-primary-color;
   text-decoration: inherit;
 }
 a:hover {
@@ -35,9 +37,27 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+.logo img {
+  width:220px
+}
+.logo {
+  position: relative;
+  display: inline-block;
+  margin: 50px;
+}
+.logo .img-top {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.logo:hover .img-top {
+  display: inline;
 }
 
 h1 {
@@ -82,19 +102,35 @@ button:focus-visible {
   display: block;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 999;
+  background-color: #f9f9f9;
+  box-shadow: 0px 7px var(--brand-primary-color);
+
+
 }
+
+.header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.header li {
+  display: inline;
+  padding-right: 8px;
+  position: relative;
+}
+
 
 .is-sticky {
   position: fixed;
   display: block;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 999;
   box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
-  background-color: red !important;
+  /* background-color: red !important; */
   animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -118,7 +154,7 @@ button:focus-visible {
 	animation: fade-in-bottom 1s ease-in-out both;
 }
 
-.scrolled.slide-left {
+.slide-left {
 	animation: slide-in-left 1s ease-in-out both;
 }
 
@@ -189,24 +225,60 @@ button:focus-visible {
 
 /*content boxes*/ 
 .box-container {
-	height: 110vh;
 	min-height: 600px;
 	padding: 2rem 1rem;
 	display: flex;
+  flex-direction: column;
 	align-items: center;
 	box-sizing: border-box;
 	justify-content: center;
+  min-width: 600px;
+}
+
+.box-about {
+	background-color: white;
+  color: var(--text-dark-color);
+
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+	box-shadow: 5px 10px var(--brand-primary-color);
+	overflow: hidden;
+	text-overflow: ellipsis; 
+	margin-bottom: 100px;
+  width: 80%;
+  padding: 1rem;
 }
 
 .box {
 	background-color: white;
   color: var(--text-dark-color);
-	height: 550px;
-	max-width: 1200px;
+	height: 250px;
+  display: flex;
+	max-width: 600px;
 	box-shadow: 5px 10px var(--brand-primary-color);
 	overflow: hidden;
 	text-overflow: ellipsis; 
 	margin-bottom: 100px;
+  width: 80%;
+  padding: 1rem;
+}
+
+.boxImg {
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin-top: 25px;
+  margin-right: 20px;
+}
+
+.boxLink {
+  position: absolute;
+  top: 80%;
+  right: 10%;
+}
+.box.partner {
+  height: 200px;
 }
 .box-img {
 	float: right;

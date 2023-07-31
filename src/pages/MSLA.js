@@ -5,9 +5,10 @@ import Partner from '../components/Partner'
 function MSLA() {
   return (
     <>
-    <div>MSLA</div>
-    <Partner name="MSLA" text="some text" />
-    <Images type="MSLA" />
+    <div className="box-container">
+      <Partner name="MSLA" text="some text" image="MSLA.png" link="http://MSLA.com"/>
+      <Images type="MSLA" />
+    </div>
     </>
   )
 }

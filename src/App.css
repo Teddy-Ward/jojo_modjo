@@ -5,22 +5,5 @@
   text-align: center;
 }
 
-.logo img {
-  width:220px
-}
-.logo {
-  position: relative;
-  display: inline-block;
-  margin: 50px;
-}
-.logo .img-top {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 99;
-}
-.logo:hover .img-top {
-  display: inline;
-}
+
 

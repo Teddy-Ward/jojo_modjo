@@ -1,16 +1,26 @@
 import React from 'react'
+import Reveal from 'react-reveal/Reveal';
 
-function Partner({name, text}) {
+const CND = process.env.REACT_APP_SUPABASE_CDN
 
+function Partner({name, text, image, link}) {
+ const imageURL = `../../assets/logos/` + image
   return (
     <>
-      <div className='box-container'>
-        <div className='box js-scroll scrolled fade-in-bottom'>
-          <div>Partner</div>
-          <div>{name} {text}</div>           
+    <Reveal effect="slide-left">
+      <div className='box'>
+        <img
+          src={imageURL}
+          alt="Partners Logo"
+          className='boxImg'
+        />
+        <div className='partner'>
+          <h2>{name}</h2>
+          <div>{text}</div>
+          <div className='boxLink'>{link}</div>
         </div>
       </div>
-
+    </Reveal>
     </>
 
   )
