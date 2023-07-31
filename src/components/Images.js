@@ -37,7 +37,7 @@ function Images({type}) {
 
   return (
     <>
-      <Container>
+      <Container className='box-images'>
         <h3>Current Database Items</h3>
         <Row xs={1} lg={3} className="g-4">
           {images.map((image) => (
