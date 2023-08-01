@@ -46,12 +46,12 @@ function About() {
 
   return (
     <>
-      <Fade delay={500}>
+      <Fade delay={500} duration={2000}>
         <div className="box-about">
-          <div>About</div>
+          <h2>About</h2>
           <div>
             <img src={imageURL} alt="Avatar" className="boxImg" />
-            <p style={{ whiteSpace: "pre-wrap" }}>{about}</p>
+            <p style={{ whiteSpace: "pre-wrap", textAlign:"left" }}>{about}</p>
             <p>{username}</p>
           </div>
         </div>

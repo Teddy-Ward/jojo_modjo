@@ -29,11 +29,10 @@ function Images({ type, title }) {
     }
   }
 
-  console.log(images);
 
   return (
     <>
-      <Fade delay={800}>
+      <Fade delay={800} duration={2000}>
         <div className="box-images">
           <h3>{title}</h3>
           <Grid
@@ -44,7 +43,7 @@ function Images({ type, title }) {
             alignItems="center"
             justifyContent="center"
           >
-            <Fade cascade delay={1000}>
+            <Fade cascade delay={2000}>
               {images.map((image) => (
                 <Grid
                   xs={2}
