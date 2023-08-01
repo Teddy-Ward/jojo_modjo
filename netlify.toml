@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "/Login"
+  from = "/Login/*"
   to = "/Login.js"
   status = 200
