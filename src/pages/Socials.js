@@ -6,7 +6,7 @@ import { Fade } from "react-awesome-reveal";
 function Socials() {
   return (
     <>
-      <div className="box-socials">
+      <div className="welcome">
         <Grid
           container
           spacing={{ xs: 2, md: 8 }}
