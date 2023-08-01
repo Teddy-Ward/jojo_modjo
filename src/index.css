@@ -25,6 +25,15 @@
 	--text-light-color: white;
 }
 
+.welcome {
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  max-width: 1200px;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}
+
 a {
   font-weight: 500;
   color: var(--text-dark-color);
@@ -169,6 +178,7 @@ button:focus-visible {
 	overflow: hidden;
 	text-overflow: ellipsis; 
 	margin-bottom: 100px;
+  max-width: 1200px;
   width: 80%;
   padding: 1rem;
 }

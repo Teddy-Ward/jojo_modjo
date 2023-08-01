@@ -22,7 +22,7 @@ const Header = () => {
 
   const classes = `header ${sticky}`;
 
-  const pages = ["About", "MSLA", "Spooo", "PbPS", "Gallery", "Socials"];
+  const pages = ["About", "Gallery", "PbPS", "Spooo", "MSLA", "Socials"];
   return (
     <>
       <header className={classes}>

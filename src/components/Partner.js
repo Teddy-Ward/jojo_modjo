@@ -6,7 +6,7 @@ function Partner({name, text, image, link}) {
  const imageURL = `../../assets/logos/` + image
   return (
     <>
-    <Fade delay={500}>
+    <Fade delay={500} triggerOnce>
       <div className='box'>
         <img
           src={imageURL}

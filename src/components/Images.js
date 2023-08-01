@@ -32,7 +32,7 @@ function Images({ type, title }) {
 
   return (
     <>
-      <Fade delay={800} duration={2000}>
+      <Fade delay={800} duration={2000} triggerOnce>
         <div className="box-images">
           <h3>{title}</h3>
           <Grid
@@ -43,13 +43,12 @@ function Images({ type, title }) {
             alignItems="center"
             justifyContent="center"
           >
-            <Fade cascade delay={2000}>
+            <Fade cascade delay={2000} triggerOnce>
               {images.map((image) => (
                 <Grid
                   xs={2}
                   sm={4}
                   md={4}
-
                 >
                   <ImagesCard product={image} />
                 </Grid>
