@@ -1,5 +1,5 @@
 import React from 'react'
-import Reveal from 'react-reveal/Reveal';
+import { Reveal } from "react-awesome-reveal";
 
 const CND = process.env.REACT_APP_SUPABASE_CDN
 
@@ -7,7 +7,7 @@ function Partner({name, text, image, link}) {
  const imageURL = `../../assets/logos/` + image
   return (
     <>
-    <Reveal effect="slide-left">
+    <Reveal className="slide-left">
       <div className='box'>
         <img
           src={imageURL}

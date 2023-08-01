@@ -1,7 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Reveal from 'react-reveal/Reveal';
-import Fade from 'react-reveal/Fade';
 import { supabase } from "../components/supabaseClient";
 
 
@@ -47,7 +45,7 @@ function About() {
 
   return (
     <>
-    <Reveal effect="fade-in">
+
           <div className="box-about">
       <div>About</div>
       <div>
@@ -60,7 +58,7 @@ function About() {
         <p>{username}</p>
       </div>
     </div>
-    </Reveal>
+
 
 
     </>
