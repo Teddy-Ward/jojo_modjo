@@ -259,7 +259,9 @@ button:focus-visible {
 	overflow: hidden;
 	text-overflow: ellipsis; 
 	margin-bottom: 100px;
-  min-width: 80vw;
+  min-width: 600px;
+  width: 80vw;
+  max-width: 1400px;
   padding: 1rem;
 }
 
