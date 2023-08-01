@@ -68,9 +68,10 @@ function Product() {
       }
 
       const file = event.target.files[0]
-      const fileExt = file.name.split('.').pop()
-      const fileName = `${Math.random()}.${fileExt}`
-      const filePath = `${fileName}`
+      // const fileExt = file.name.split('.').pop()
+      // const fileName = `${Math.random()}.${fileExt}`
+      // const filePath = `${fileName}`
+      const filePath = file.name
 
       let { error: uploadError } = await supabase.storage.from('images').upload(filePath, file)
 

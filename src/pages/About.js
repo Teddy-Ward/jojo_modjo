@@ -1,14 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { supabase } from "../components/supabaseClient";
+import { Fade } from "react-awesome-reveal";
 
+import { supabase } from "../components/supabaseClient";
 
 const supabaseUserId = process.env.REACT_APP_SUPABASE_USER_ID;
 
 const userID = supabaseUserId;
 console.log(userID);
 
-const CND = process.env.REACT_APP_SUPABASE_AVATAR_CDN
+const CDN = process.env.REACT_APP_SUPABASE_AVATAR_CDN;
 
 function About() {
   const [loading, setLoading] = useState(true);
@@ -40,27 +41,21 @@ function About() {
     getProfile();
   }, []);
 
-  console.log(avatar_url)
-  const imageURL = CND + avatar_url
+  console.log(avatar_url);
+  const imageURL = CDN + avatar_url;
 
   return (
     <>
-
-          <div className="box-about">
-      <div>About</div>
-      <div>
-        <img 
-            src={imageURL}
-            alt="Avatar"
-            className="boxImg"
-        />
-          <p style={{ whiteSpace: "pre-wrap" }}>{about}</p>
-        <p>{username}</p>
-      </div>
-    </div>
-
-
-
+      <Fade delay={500}>
+        <div className="box-about">
+          <div>About</div>
+          <div>
+            <img src={imageURL} alt="Avatar" className="boxImg" />
+            <p style={{ whiteSpace: "pre-wrap" }}>{about}</p>
+            <p>{username}</p>
+          </div>
+        </div>
+      </Fade>
     </>
   );
 }

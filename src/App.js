@@ -22,7 +22,7 @@ function App() {
               <Route path="/About" element={<About />} />
               <Route path="/Gallery" element={<Gallery />} />
               <Route path="/MSLA" element={<MSLA />} />
-              <Route path="/PixelByPixel" element={<PixelByPixel />} />
+              <Route path="/PbPS" element={<PixelByPixel />} />
               <Route path="/Socials" element={<Socials />} />
               <Route path="/Spooo" element={<Spooo />} />
               <Route path="/Vtuber" element={<Vtuber />} />

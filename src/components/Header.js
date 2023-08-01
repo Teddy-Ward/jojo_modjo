@@ -22,18 +22,14 @@ const Header = () => {
 
   const classes = `header ${sticky}`;
 
-  const pages = [
-    "About",
-    "MSLA",
-    "Spooo",
-    "PixelByPixel",
-    "Gallery",
-    "Socials",
-  ];
+  const pages = ["About", "MSLA", "Spooo", "PbPS", "Gallery", "Socials"];
   return (
     <>
       <header className={classes}>
         <ul>
+          <li>
+            <NavLink to="">Home</NavLink>
+          </li>
           {pages.map((page) => (
             <li>
               <NavLink
@@ -50,14 +46,11 @@ const Header = () => {
               </NavLink>
             </li>
           ))}
-            <li>
-              <NavLink
-                to=''
-                target="_blank"
-              >
-                Shop
-              </NavLink>
-            </li>
+          <li>
+            <NavLink to="" target="_blank">
+              Shop
+            </NavLink>
+          </li>
         </ul>
       </header>
     </>

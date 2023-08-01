@@ -1,18 +1,17 @@
+import Grid from "@mui/material/Unstable_Grid2";
+import { useState, useEffect } from "react";
+import ImagesCard from "./ImagesCard";
+import { supabase } from "./supabaseClient";
+import { Fade } from "react-awesome-reveal";
 
-import { Navbar, Container, Nav, Form, Row, Col, Button } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
-import ImagesCard from './ImagesCard';
-import { supabase } from './supabaseClient';
-
-
-function Images({type}) {
-  const [ images, setImages ] = useState([]);
+function Images({ type, title }) {
+  const [images, setImages] = useState([]);
 
   console.log(type);
 
   useEffect(() => {
     getImages();
-  }, [])
+  }, []);
 
   async function getImages() {
     try {
@@ -20,7 +19,7 @@ function Images({type}) {
         .from("products")
         .select("*")
         .eq("category", type)
-        .limit(10)
+        .limit(10);
       if (error) throw error;
       if (data != null) {
         setImages(data);
@@ -30,23 +29,36 @@ function Images({type}) {
     }
   }
 
-
-
   console.log(images);
-
 
   return (
     <>
-      <Container className='box-images'>
-        <h3>Current Database Items</h3>
-        <Row xs={1} lg={3} className="g-4">
-          {images.map((image) => (
-            <Col>
-              <ImagesCard product={image} />
-            </Col>
-          ))}
-        </Row>
-      </Container>
+      <Fade delay={800}>
+        <div className="box-images">
+          <h3>{title}</h3>
+          <Grid
+            container
+            spacing={{ xs: 2, md: 3 }}
+            columns={{ xs: 4, sm: 8, md: 12 }}
+
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Fade cascade delay={1000}>
+              {images.map((image) => (
+                <Grid
+                  xs={2}
+                  sm={4}
+                  md={4}
+
+                >
+                  <ImagesCard product={image} />
+                </Grid>
+              ))}
+            </Fade>
+          </Grid>
+        </div>
+      </Fade>
     </>
   );
 }

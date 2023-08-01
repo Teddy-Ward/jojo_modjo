@@ -1,13 +1,12 @@
 import React from 'react'
-import { Reveal } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
-const CND = process.env.REACT_APP_SUPABASE_CDN
 
 function Partner({name, text, image, link}) {
  const imageURL = `../../assets/logos/` + image
   return (
     <>
-    <Reveal className="slide-left">
+    <Fade delay={500}>
       <div className='box'>
         <img
           src={imageURL}
@@ -16,11 +15,11 @@ function Partner({name, text, image, link}) {
         />
         <div className='partner'>
           <h2>{name}</h2>
-          <div>{text}</div>
-          <div className='boxLink'>{link}</div>
+          <div style={{ whiteSpace: "pre-wrap", textAlign:"left", paddingBottom:"20px" }}>{text}</div>
+          <div className='boxLink'><a href={link} target="_blank">{link}</a></div>
         </div>
       </div>
-    </Reveal>
+    </Fade>
     </>
 
   )

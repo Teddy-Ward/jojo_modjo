@@ -226,7 +226,7 @@ button:focus-visible {
 /*content boxes*/ 
 .box-container {
 	min-height: 600px;
-	padding: 2rem 1rem;
+	padding: 1rem 1rem;
 	display: flex;
   flex-direction: column;
 	align-items: center;
@@ -254,29 +254,28 @@ button:focus-visible {
   color: var(--text-dark-color);
   display: flex;
   flex-direction: column;
-  margin: auto;
 	box-shadow: 5px 10px var(--brand-primary-color);
 	overflow: hidden;
 	text-overflow: ellipsis; 
-	margin-bottom: 100px;
   min-width: 600px;
   width: 80vw;
   max-width: 1400px;
-  padding: 1rem;
 }
 
 .box {
 	background-color: white;
   color: var(--text-dark-color);
-	height: 250px;
   display: flex;
 	max-width: 600px;
 	box-shadow: 5px 10px var(--brand-primary-color);
 	overflow: hidden;
 	text-overflow: ellipsis; 
 	margin-bottom: 100px;
-  width: 100%;
-  padding: 1rem;
+  width: 800px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 4rem;
+  position: relative;
 }
 
 .boxImg {
@@ -287,10 +286,10 @@ button:focus-visible {
   margin-right: 20px;
 }
 
-.boxLink {
+.box .boxLink {
   position: absolute;
-  top: 80%;
-  right: 10%;
+ bottom: 5%;
+ right: 5%;
 }
 .box.partner {
   height: 200px;
