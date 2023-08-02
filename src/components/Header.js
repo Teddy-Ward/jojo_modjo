@@ -47,7 +47,7 @@ const Header = () => {
             </li>
           ))}
           <li>
-            <NavLink to="" target="_blank">
+            <NavLink to="https://jojo-modjo-shop.fourthwall.com/" target="_blank">
               Shop
             </NavLink>
           </li>

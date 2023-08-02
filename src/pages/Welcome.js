@@ -38,7 +38,7 @@ export default function Welcome() {
         </Grid>
         <Grid xs={4}>
         <Fade delay={1800} duration={2000}>
-          <Link to='' target="_blank">
+          <Link to='https://jojo-modjo-shop.fourthwall.com/' target="_blank">
             <div className="logo">
               <img src="../assets/logos/shop.png" alt="Shop Logo" />
               <img src="../assets/logos/shop hover.png" class="img-top" alt="Shop Logo Hover" />
