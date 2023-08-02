@@ -138,7 +138,7 @@ function Product() {
             />
             <Form.Label>Product image url</Form.Label>
             <Form.Group className="mb-3" style={{maxWidth: "500px"}}>
-              <Form.Control type="file" accept="image/png, image/jpeg" onChange={(event) => uploadImage(event)}/>
+              <Form.Control type="file" accept="image/png, image/jpeg, video/mp4, video/x-m4v, video/*" onChange={(event) => uploadImage(event)}/>
             </Form.Group>
             <Form.Label>Product Date</Form.Label>
             <Form.Control

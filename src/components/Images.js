@@ -19,7 +19,7 @@ function Images({ type, title }) {
         .from("products")
         .select("*")
         .eq("category", type)
-        .order('id');
+        .order('date');
       if (error) throw error;
       if (data != null) {
         setImages(data);
