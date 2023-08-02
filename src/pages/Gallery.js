@@ -6,7 +6,7 @@ function Gallery() {
   return (
     <>
       <div className="box">
-        <h3>Gallery</h3>  
+        SoonTM
       </div>
     </>
           

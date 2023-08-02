@@ -52,7 +52,7 @@ function Images({ type, title }) {
                 >
                   <ImagesCard product={image} />
                 </Grid>
-              ))}
+              )).reverse()}
             </Fade>
           </Grid>
         </div>

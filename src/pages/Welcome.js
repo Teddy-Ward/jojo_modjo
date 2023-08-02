@@ -31,8 +31,8 @@ export default function Welcome() {
         <Fade delay={800} duration={2000}>
           <Link to="/PbPS">
             <div className="logo">
-              <img src="../assets/logos/mos.png" alt="Pixel by Pixel Logo" />
-              <img src="../assets/logos/mos hover.png" class="img-top" alt="Pixel by Pixel Logo Hover" />
+              <img src="../assets/logos/pixel.png" alt="Pixel by Pixel Logo" />
+              <img src="../assets/logos/pixel hover.png" class="img-top" alt="Pixel by Pixel Logo Hover" />
             </div>            
           </Link></Fade>
         </Grid>

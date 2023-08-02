@@ -2,7 +2,7 @@ import React from 'react'
 
 function Vtuber() {
   return (
-    <div>Vtuber</div>
+    <div className='box'>Coming SoonTM</div>
   )
 }
 
