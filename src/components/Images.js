@@ -19,7 +19,7 @@ function Images({ type, title }) {
         .from("products")
         .select("*")
         .eq("category", type)
-
+        .order('id');
       if (error) throw error;
       if (data != null) {
         setImages(data);
@@ -32,7 +32,7 @@ function Images({ type, title }) {
 
   return (
     <>
-      <Fade delay={800} duration={2000} triggerOnce>
+      <Fade delay={100} duration={2000} >
         <div className="box-images">
           <h3>{title}</h3>
           <Grid
@@ -43,12 +43,13 @@ function Images({ type, title }) {
             alignItems="center"
             justifyContent="center"
           >
-            <Fade cascade delay={2000} triggerOnce>
+            <Fade triggerOnce>
               {images.map((image) => (
                 <Grid
                   xs={2}
                   sm={4}
                   md={4}
+                  style={{minHeight:"350px"}}
                 >
                   <ImagesCard product={image} />
                 </Grid>
