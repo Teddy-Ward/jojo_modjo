@@ -32,7 +32,7 @@ function Images({ type, title }) {
 
   return (
     <>
-      <Fade delay={100} duration={2000} >
+      <Fade delay={1000} duration={2000} >
         <div className="box-images">
           <h3>{title}</h3>
           <Grid
