@@ -46,11 +46,13 @@ function About() {
 
   return (
     <>
-      <Fade delay={500} duration={2000}>
+      <Fade delay={500} duration={2000} triggerOnce>
         <div className="box-about">
           <h2>About</h2>
           <div>
-            <img src={imageURL} alt="Avatar" className="boxImg" />
+            <Fade delay={700} duration={2000} triggerOnce>
+              <img src={imageURL} alt="Avatar" className="boxImg" />
+            </Fade>
             <p style={{ whiteSpace: "pre-wrap", textAlign:"left" }}>{about}</p>
             <p>{username}</p>
           </div>

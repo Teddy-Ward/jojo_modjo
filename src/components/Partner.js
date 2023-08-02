@@ -8,11 +8,14 @@ function Partner({name, text, image, link}) {
     <>
     <Fade delay={500} triggerOnce>
       <div className='box'>
-        <img
+        <Fade delay={700} duration={2000} triggerOnce>
+          <img
           src={imageURL}
           alt="Partners Logo"
           className='boxImg'
-        />
+          />
+        </Fade>
+
         <div className='partner'>
           <h2>{name}</h2>
           <div style={{ whiteSpace: "pre-wrap", textAlign:"left", paddingBottom:"20px" }}>{text}</div>
