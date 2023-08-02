@@ -19,7 +19,7 @@ function Images({ type, title }) {
         .from("products")
         .select("*")
         .eq("category", type)
-        .limit(10);
+
       if (error) throw error;
       if (data != null) {
         setImages(data);

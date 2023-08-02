@@ -25,7 +25,6 @@ function Product() {
       const { data, error } = await supabase
         .from("products")
         .select("*")
-        .limit(10)
       if (error) throw error;
       if (data != null) {
         setProducts(data); // [product1,product2,product3]
