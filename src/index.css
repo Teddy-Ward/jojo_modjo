@@ -259,8 +259,9 @@ button:focus-visible {
   .logo img {
     width: 100px;
   }
-  .box-about {
+  .box {
     display: block;
+    margin-bottom: 100px;
   }
   .box-images {
     flex-direction: column;
@@ -280,5 +281,8 @@ button:focus-visible {
   .box {
     width: 80vw;
     padding-bottom: 1rem;
+  }
+  .box .boxLink {
+    position: relative;
   }
 }

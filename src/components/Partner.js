@@ -7,7 +7,7 @@ function Partner({name, text, image, link}) {
   return (
     <>
     <Fade delay={500} triggerOnce>
-      <div className='box-about'>
+      <div className='box'>
         <Fade delay={700} duration={2000} triggerOnce>
           <img
           src={imageURL}
