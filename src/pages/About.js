@@ -53,7 +53,7 @@ function About() {
             <Fade delay={700} duration={2000} triggerOnce>
               <img src={imageURL} alt="Avatar" className="boxImg" />
             </Fade>
-            <p style={{ whiteSpace: "pre-wrap", textAlign:"left" }}>{about}</p>
+            <p className="about-text" style={{ whiteSpace: "pre-wrap"}}>{about}</p>
             <p>{username}</p>
           </div>
         </div>

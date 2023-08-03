@@ -7,7 +7,7 @@ function Partner({name, text, image, link}) {
   return (
     <>
     <Fade delay={500} triggerOnce>
-      <div className='box'>
+      <div className='box-about'>
         <Fade delay={700} duration={2000} triggerOnce>
           <img
           src={imageURL}
@@ -18,7 +18,7 @@ function Partner({name, text, image, link}) {
 
         <div className='partner'>
           <h2>{name}</h2>
-          <div style={{ whiteSpace: "pre-wrap", textAlign:"left", paddingBottom:"20px" }}>{text}</div>
+          <div className="about-text" style={{ whiteSpace: "pre-wrap", paddingBottom:"20px" }}>{text}</div>
           <div className='boxLink'><a href={link} target="_blank">{link}</a></div>
         </div>
       </div>

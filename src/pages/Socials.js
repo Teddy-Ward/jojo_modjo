@@ -10,13 +10,13 @@ function Socials() {
         <Grid
           container
           spacing={{ xs: 2, md: 8 }}
-          columns={{ xs: 2, sm: 9, md: 9 }}
+          columns={{ xs: 4, sm: 9, md: 9 }}
           alignItems="center"
           justifyContent="center"
           padding={10}
         >
           <Grid xs={2} sm={3} md={3}>
-            <Fade delay={200} duration={2000}>
+            <Fade delay={200} duration={2000} triggerOnce>
               <Link to="http://twitter.com/jojomodjo" target="_blank">
                 <div className="socials">
                   <img
@@ -28,7 +28,7 @@ function Socials() {
             </Fade>
           </Grid>
           <Grid xs={2} sm={3} md={3}>
-            <Fade delay={400} duration={2000}>
+            <Fade delay={400} duration={2000} triggerOnce>
               <Link to="https://www.youtube.com/@jojomodjo/" target="_blank">
                 <div className="socials">
                   <img
@@ -40,7 +40,7 @@ function Socials() {
             </Fade>
           </Grid>
           <Grid xs={2} sm={3} md={3}>
-            <Fade delay={600} duration={2000}>
+            <Fade delay={600} duration={2000} triggerOnce>
               <Link to="https://twitch.tv/jojo_modjo" target="_blank">
                 <div className="socials">
                   <img
@@ -52,7 +52,7 @@ function Socials() {
             </Fade>
           </Grid>
           <Grid xs={2} sm={3} md={3}>
-          <Fade delay={800} duration={2000}>
+          <Fade delay={800} duration={2000} triggerOnce>
             <Link to="https://www.tiktok.com/@jojo_modjo" target="_blank">
               <div className="socials">
                 <img
@@ -64,7 +64,7 @@ function Socials() {
             </Fade>
           </Grid>
           <Grid xs={2} sm={3} md={3}>
-          <Fade delay={1000} duration={2000}>
+          <Fade delay={1000} duration={2000} triggerOnce>
             <Link
               to="https://discordlookup.com/user/236874602662461440"
               target="_blank"
@@ -79,7 +79,7 @@ function Socials() {
             </Fade>
           </Grid>
           <Grid xs={2} sm={3} md={3}>
-          <Fade delay={1200} duration={2000}>
+          <Fade delay={1200} duration={2000} triggerOnce>
             <Link to="https://www.instagram.com/jojo_modjo/" target="_blank">
               <div className="socials">
                 <img

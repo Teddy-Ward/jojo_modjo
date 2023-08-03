@@ -48,6 +48,7 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #7e2cc5;
 }
 
 .socials img {
@@ -155,7 +156,6 @@ button:focus-visible {
 }
 
 
-
 /*content boxes*/ 
 .box-container {
 	min-height: 600px;
@@ -165,7 +165,7 @@ button:focus-visible {
 	align-items: center;
 	box-sizing: border-box;
 	justify-content: center;
-  min-width: 600px;
+
 }
 
 .box-about {
@@ -196,18 +196,6 @@ button:focus-visible {
   max-width: 1400px;
 }
 
-.box-socials {
-
-
-  display: flex;
-  flex-direction: column;
-
-	overflow: hidden;
-	text-overflow: ellipsis; 
-  min-width: 600px;
-
-
-}
 
 .box {
 	background-color: white;
@@ -256,9 +244,37 @@ button:focus-visible {
 	max-width: 550px;
 }
 
-.el {
-  margin-top: 100vh;
+.about-text {
+  text-align: left;
 }
-.test {
-  color: #F45B69;
+
+@media (max-width: 480px) {
+  .welcome {
+    width: 100%;
+  }
+  .logo img {
+    width: 100px;
+  }
+  .box-about {
+    display: block;
+  }
+  .box-images {
+    flex-direction: column;
+    min-width: 10px;
+    width: none;
+    max-width: none;
+  }
+  .boxImg {
+    float: none;
+  }
+  .about-text {
+    text-align: center;
+  }
+  .socials img {
+    width: 100px;
+  }
+  .box {
+    width: 80vw;
+    padding-bottom: 1rem;
+  }
 }
