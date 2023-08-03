@@ -47,7 +47,6 @@ body {
   margin: 0;
   display: flex;
   min-width: 320px;
-  min-height: 100vh;
   background-color: #7e2cc5;
   padding: 2rem;
 }
@@ -166,7 +165,7 @@ button:focus-visible {
 	align-items: center;
 	box-sizing: border-box;
 	justify-content: center;
-
+ overflow: hidden;
 }
 
 .box-about {
