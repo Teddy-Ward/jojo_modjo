@@ -48,7 +48,6 @@ body {
   display: flex;
   min-width: 320px;
   background-color: #7e2cc5;
-  padding: 2rem;
 }
 
 .socials img {
@@ -183,6 +182,21 @@ button:focus-visible {
   padding: 1rem;
 }
 
+.box-partner {
+	background-color: white;
+  color: var(--text-dark-color);
+  display: flex;
+  margin: auto;
+	max-width: 600px;
+	box-shadow: 5px 10px var(--brand-primary-color);
+	overflow: hidden;
+	text-overflow: ellipsis; 
+	margin-bottom: 100px;
+  width: 100%;
+  padding: 2rem;
+
+}
+
 .box-images {
 	background-color: white;
   color: var(--text-dark-color);
@@ -222,7 +236,7 @@ button:focus-visible {
 }
 
 .box .boxLink {
-  position: absolute;
+ position: absolute;
  bottom: 5%;
  right: 5%;
 }
@@ -250,10 +264,13 @@ button:focus-visible {
 
 @media (max-width: 480px) {
   .body {
-    padding: 0;
+    padding: 0px;
   }
   .welcome {
     width: 100%;
+  }
+  .logo {
+    margin: 0;
   }
   .logo img {
     width: 100px;
@@ -267,6 +284,11 @@ button:focus-visible {
     min-width: 10px;
     width: none;
     max-width: none;
+  }
+  .box-partner {
+    flex-direction: column;
+    padding: 1rem;
+    width: 80%;
   }
   .boxImg {
     float: none;
