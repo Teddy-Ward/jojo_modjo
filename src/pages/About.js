@@ -7,7 +7,7 @@ import { supabase } from "../components/supabaseClient";
 const supabaseUserId = process.env.REACT_APP_SUPABASE_USER_ID;
 
 const userID = supabaseUserId;
-console.log(userID);
+
 
 const CDN = process.env.REACT_APP_SUPABASE_AVATAR_CDN;
 
@@ -41,7 +41,7 @@ function About() {
     getProfile();
   }, []);
 
-  console.log(avatar_url);
+
   const imageURL = CDN + avatar_url;
 
   return (
