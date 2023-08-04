@@ -7,7 +7,6 @@ import { Fade } from "react-awesome-reveal";
 function Images({ type, title }) {
   const [images, setImages] = useState([]);
 
-  console.log(type);
 
   useEffect(() => {
     getImages();
