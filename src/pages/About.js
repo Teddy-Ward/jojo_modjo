@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import { Fade } from "react-awesome-reveal";
 
 import { supabase } from "../components/supabaseClient";
+import Reviews from "../components/Reviews";
 
 const supabaseUserId = process.env.REACT_APP_SUPABASE_USER_ID;
 
 const userID = supabaseUserId;
-
 
 const CDN = process.env.REACT_APP_SUPABASE_AVATAR_CDN;
 
@@ -41,7 +41,6 @@ function About() {
     getProfile();
   }, []);
 
-
   const imageURL = CDN + avatar_url;
 
   return (
@@ -53,11 +52,16 @@ function About() {
             <Fade delay={700} duration={2000} triggerOnce>
               <img src={imageURL} alt="Avatar" className="boxImg" />
             </Fade>
-            <p className="about-text" style={{ whiteSpace: "pre-wrap"}}>{about}</p>
+            <p className="about-text" style={{ whiteSpace: "pre-wrap" }}>
+              {about}
+            </p>
             <p>{username}</p>
           </div>
         </div>
       </Fade>
+      {/* <Fade delay={500} duration={2000} triggerOnce>
+        <Reviews />
+      </Fade> */}
     </>
   );
 }
