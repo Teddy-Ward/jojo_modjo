@@ -3,49 +3,44 @@ import { Navbar, Container, Nav, Form, Row, Col, Button } from 'react-bootstrap'
 import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import { supabase } from './supabaseClient';
+import ReviewCard from './Reviews';
 
 
-function Product() {
-  const [ category, setCategory ] = useState("");
-  const [ name, setName ] = useState("");
+function Review() {
+  const [ label, setLabel ] = useState("");
   const [ description, setDescription ] = useState("");
   const [ image_url, setImage_url ] = useState("");
-  const [ date, setDate ] = useState("");
-  const [ video, setVideo ] = useState("");
-  const [ link, setLink ] = useState("");
-  const [ products, setProducts ] = useState([]);
+  const [ reviews, setReviews ] = useState([]);
   const [ uploading, setUploading ] = useState(false);
 
   useEffect(() => {
-    getProducts();
+    getReviews();
   }, [])
 
-  async function getProducts() {
+  async function getReviews() {
     try {
       const { data, error } = await supabase
-        .from("products")
+        .from("reviews")
         .select("*")
       if (error) throw error;
       if (data != null) {
-        setProducts(data); // [product1,product2,product3]
+        setReviews(data); // [product1,product2,product3]
       }
     } catch (error) {
       alert(error.message);
     }
   }
 
-  async function createProduct() {
+  async function createReview() {
     try {
       const { data, error } = await supabase
-        .from("products")
+        .from("reviews")
         .insert({
-          category: category,
-          name: name,
+
+          label: label,
           description: description,
           image_url: image_url,
-          date: date,
-          video: video,
-          link: link
+
         })
         .single()
         
@@ -56,7 +51,7 @@ function Product() {
     }
   }
 
-  console.log(products);
+  console.log(reviews);
 
   async function uploadImage(event) {
     try {
@@ -87,75 +82,39 @@ function Product() {
     }
   }
 
-  const categoryList = [
-    { label: 'Set Category'},
-    { label: 'MSLA', value: 'MSLA' },
-    { label: 'Spooo', value: 'Spooo'},
-    { label: "PixelbyPixel", value: "PixelbyPixel" },
-    { label: "Gallery", value: "Gallery" },
-    { label: "Vtuber", value: "Vtuber"}
-  ]
-
-  const listChange = (event) => {
-    setCategory(event.target.value);
-  }
 
   return (
     <>
       <Container>
         <Row>
           <Col xs={12} md={8}>
-            <h3>Create Product For Supabase Database</h3>
-            <Form.Label>Product category</Form.Label>
-            <select category={category} onChange={listChange}>
-              {categoryList.map((option) => (
-                <option category={option.value}>{option.label}</option>
-              ))}
-            </select>
-            <Form.Label>Product Name</Form.Label>
+            <h3>Create Review</h3>
+            <Form.Label>Review Label</Form.Label>
             <Form.Control
               type="text"
-              id="name"
-              onChange={(e) => setName(e.target.value)}
+              id="label"
+              onChange={(e) => setLabel(e.target.value)}
             />
-            <Form.Label>Product Description</Form.Label>
+            <Form.Label>Review Description</Form.Label>
             <Form.Control
               type="text"
               id="description"
               onChange={(e) => setDescription(e.target.value)}
             />
-            <Form.Label>Product Video/Clip Link</Form.Label>
-            <Form.Control
-              type="text"
-              id="video"
-              onChange={(e) => setVideo(e.target.value)}
-            />
-            <Form.Label>Product Link</Form.Label>
-            <Form.Control
-              type="text"
-              id="link"
-              onChange={(e) => setLink(e.target.value)}
-            />
-            <Form.Label>Product image url</Form.Label>
+            <Form.Label>Review image url</Form.Label>
             <Form.Group className="mb-3" style={{maxWidth: "500px"}}>
               <Form.Control type="file" accept="image/png, image/jpeg, video/mp4, video/x-m4v, video/*" onChange={(event) => uploadImage(event)}/>
             </Form.Group>
-            <Form.Label>Product Date</Form.Label>
-            <Form.Control
-              type="date"
-              id="date"
-              onChange={(e) => setDate(e.target.value)}
-            />
             <br></br>
-            <Button onClick={() => createProduct()}>Create Product in Supabase DB</Button>
+            <Button onClick={() => createReview()}>Create Review</Button>
           </Col>
         </Row>
         <hr></hr>
         <h3>Current Database Items</h3>
         <Row xs={1} lg={3} className="g-4">
-          {products.map((product) => (
+          {reviews.map((review) => (
             <Col>
-              <ProductCard product={product} /> 
+              <ReviewCard reviews={review} /> 
             </Col>
           )).reverse()}
         </Row>
@@ -164,4 +123,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default Review;

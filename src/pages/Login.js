@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../components/supabaseClient'
 import Auth from '../components/Auth'
 import Account from '../components/Account'
-import Product from '../components/Product'
+import Admin from '../components/Admin'
+
 
 function Login() {
     const [session, setSession] = useState(null)
@@ -24,7 +25,7 @@ function Login() {
         : 
         <>
         <Account key={session.user.id} session={session} />
-        <Product />
+        <Admin />
         </>
         }
       </div>

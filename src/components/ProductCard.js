@@ -82,7 +82,7 @@ function ProductCard(props) {
   };
 
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card style={{ width: "24rem", marginLeft: "auto", marginRight: "auto"}}>
       <Card.Body>
         {editing === false ? (
           <>
@@ -93,7 +93,7 @@ function ProductCard(props) {
             <Card.Text>{product.link}</Card.Text>
             <Card.Text>{product.image_url}</Card.Text>
             <Card.Text>{product.date}</Card.Text>
-            <Button variant="danger" onClick={() => deleteAll(product.image_url)}>
+            <Button variant="danger" onClick={() => deleteProduct()}>
               Delete Product
             </Button>
             <Button variant="secondary" onClick={() => setEditing(true)}>

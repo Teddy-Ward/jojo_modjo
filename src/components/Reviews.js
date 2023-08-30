@@ -30,7 +30,7 @@ const steps = [
   },
 ];
 
-export default function Reviews() {
+export default function ReviewCard() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = steps.length;
