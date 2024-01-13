@@ -12,7 +12,7 @@ function MSLA() {
 
 Back in April 2021, Enderzworld asked Jojo for help in creating an MSLA logo for the upcoming race. Since then, Jojo has been hard at work, crafting over 100 race logos for the Premier Series, alongside designing track logos, merch, and webm animations for the stream. Her creative touch has truly added a special element to the association's presentation.`}
           image="MSLA.png"
-          link="https://www.mslaracing.com/"
+          link="https://msla.pixelbypixel.studio/"
         />
         <Images type="MSLA" title="Premier Series Logos" />
       </div>
